@@ -518,3 +518,4 @@ const libro10= libros.map((libro) =>{
 });
 
 console.table(libro10);
+//ggh

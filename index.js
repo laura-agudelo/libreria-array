@@ -395,6 +395,11 @@ function mostrarLongitud(libros) {
 console.log("Longitud del array: ${libros.length}");
 }
 
+function listarLibros(libros){
+    libros.map(libro);
+    console.log("listar liros");
+}
+
 var continuar = "si";
 
 do {
@@ -414,7 +419,10 @@ switch (opcion) {
   case '4':
     mostrarLongitud(libros);
     break;
-  case '5':
+    case '5':
+    listarLibros(libros);
+    break;
+    case '6':
     continuar = "no";
     console.log("Saliendo del programa...");
     break;
@@ -516,6 +524,27 @@ const libro10= libros.map((libro) =>{
         precio: libro.precio,
     };
 });
-
 console.table(libro10);
-//ggh
+
+const librosConDescuento = libros.map((libro) =>{
+    return{
+        ...libro,
+        descuento:20,
+    };
+});
+console.table(librosConDescuento);
+
+const librosDescuento= librosConDescuento.map((libro) =>{
+        return{
+        titulo:libro.titulo,
+        autor: libro.autor,
+        editorial: libro.editorial,
+        precio: libro.precio,
+        descuento: libro.descuento,
+    };
+});
+
+console.table(librosDescuento);
+
+
+

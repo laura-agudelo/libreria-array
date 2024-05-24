@@ -552,7 +552,7 @@ const librosCaros = libros
 console.table(librosCaros);
 
 const librosMayorPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
-.map((titulo) =>{
+.map((titulo) =>{                                                                                                                                                                                                                                                               
     return{ 
     titulo:titulo.titulo,
     autor: titulo.autor,
@@ -561,4 +561,12 @@ const librosMayorPaginas = libros.sort((libroa,librob) => librob.paginas - libro
     };
 });
 console.table(librosMayorPaginas);
+
+const librosOrdenados = librosMayorPaginas.map((titulo) =>{
+    return{
+        titulo:titulo.titulo,
+        paginas:titulo.paginas,
+    };
+});
+console.table(librosOrdenados);
 

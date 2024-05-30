@@ -362,16 +362,17 @@ const libroEjemplo = {
   peso: "0.3 kg"
 };
 
-function mostrarMenu() {
-document.write(prompt("Seleccione una opción:"));
-console.log("Seleccione una opción:");
-console.log("1. Mostrar pila de libros");
-console.log("2. Añadir un libro a la pila");
-console.log("3. Quitar el último libro de la pila");
-console.log("4. Mostrar la longitud de la pila");
-console.log("5. listar libros");
-console.log("6. Salir");
-}
+
+let mostrarMenu ="menu principal \n\n"
+mostrarMenu+="Seleccione una opción: \n";
+mostrarMenu+="1. Mostrar pila de libros \n";
+mostrarMenu+="2. Añadir un libro a la pila \n";
+mostrarMenu+="3. Quitar el último libro de la pila \n";
+mostrarMenu+="4. Mostrar la longitud de la pila \n";
+mostrarMenu+="5. listar libros \n";
+mostrarMenu+="6. resumen Libros \n";
+mostrarMenu+="7. Salir \n";
+
 
 function mostrarLibros(libros) {
 console.log("Pila actual de libros:", libros);
@@ -379,7 +380,7 @@ console.log("Pila actual de libros:", libros);
 
 function añadirLibro(libros, libro) {
 libros.push(libro);
-console.log("Libro añadido: ${libro.titulo}");
+console.log("Libro añadido: (libro.titulo)");
 }
 
 function quitarLibro(libros) {
@@ -391,10 +392,6 @@ if (libroQuitado) {
 }
 }
 
-function mostrarLongitud(libros) {
-console.log("Longitud del array: ${libros.length}");
-}
-
 function listarLibros(libros){
     libros.map(libro);
     console.log("listar liros");
@@ -403,8 +400,8 @@ function listarLibros(libros){
 var continuar = "si";
 
 do {
-mostrarMenu();
-var opcion = prompt("Seleccione una opción:");
+
+var opcion = prompt(mostrarMenu);
 switch (opcion) {
   case '1':
     mostrarLibros(libros);
@@ -420,8 +417,8 @@ switch (opcion) {
     mostrarLongitud(libros);
     break;
     case '5':
-    listarLibros(libros);
-    break;
+        listarLibros(libros);
+        break;
     case '6':
     continuar = "no";
     console.log("Saliendo del programa...");
@@ -547,7 +544,7 @@ console.table(librosDescuento);
 
 const librosCaros = libros
 .filter((libro) =>{
-    return libro.precio > 50.000;
+    return libro.precio > 50;
 })
 console.table(librosCaros);
 
@@ -562,11 +559,64 @@ const librosMayorPaginas = libros.sort((libroa,librob) => librob.paginas - libro
 });
 console.table(librosMayorPaginas);
 
-const librosOrdenados = librosMayorPaginas.map((titulo) =>{
-    return{
+const librosOrdenados = librosMayorPaginas.sort((a,b) => b.paginas - a.paginas)
+    .map((titulo) =>{
+        return{
         titulo:titulo.titulo,
         paginas:titulo.paginas,
-    };
+    }
 });
 console.table(librosOrdenados);
+
+const librosCarosTitulo = libros.sort((a,b) => b.precio - a.precio)
+.filter((libro) =>{
+    return libro.precio > 11})
+    .map ((titulo) =>{
+        return{
+            titulo:titulo.titulo,
+            autor:titulo.autor,
+            precio:titulo.precio,
+        }
+    })
+console.table(librosCarosTitulo);
+
+const resumenPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
+.filter((libro) =>{
+    return libro.paginas < 100})
+.map((paginas) =>{                                                                                                                                                                                                                                                               
+    return{ 
+    titulo:paginas.titulo,
+    autor: paginas.autor,
+    editorial: paginas.editorial,
+    paginas: paginas.paginas,
+    };
+})
+console.table(resumenPaginas);
+
+const librosMayores20 = libros.sort((a,b) => b.precio - a.precio)
+.filter((libro) =>{
+    return libro.precio > 20})
+    .map ((titulo) =>{
+        return{
+            titulo:titulo.titulo,
+            autor:titulo.autor,
+            precio:titulo.precio,
+        }
+    })
+console.table(librosMayores20);
+
+const MayorPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
+.map((titulo) =>{                                                                                                                                                                                                                                                               
+    return{ 
+    titulo:titulo.titulo,
+    autor: titulo.autor,
+    editorial: titulo.editorial,
+    paginas: titulo.paginas,
+    };
+});
+console.table(MayorPaginas);
+
+
+
+
 

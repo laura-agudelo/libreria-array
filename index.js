@@ -362,6 +362,271 @@ const libroEjemplo = {
   peso: "0.3 kg"
 };
 
+const libro1 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        autor: libro.autor,
+        precio: libro.precio,
+    };
+});
+
+
+const libro2 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        isbn: libro.isbn,
+        genero: libro.genero,
+    };
+});
+
+
+const libro3 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        estado: libro.estado,
+        fecha_publicacion: libro.fecha_publicacion,
+    };
+});
+
+
+const libro4 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        genero:libro.genero,
+        idioma:libro.idioma,
+        
+    };
+});
+// console.table(libro4);
+
+const libro5 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        ubicacion: libro.ubicacion,
+        fecha_publicacion: libro.fecha_publicacion,
+    };
+});
+// console.table(libro5);
+
+const libro6 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        paginas: libro.paginas,
+    };
+});
+// console.table(libro6);
+
+const libro7 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        formato: libro.formato,
+        descripcion: libro.descripcion,
+    };
+});
+// console.table(libro7);
+
+const libro8 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        dimensiones: libro.dimensiones,
+        peso: libro.peso,
+    };
+});
+// console.table(libro8);
+
+const libro9 = libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        genero: libro.genero,
+        estado: libro.estado,
+    };
+});
+// console.table(libro9);
+
+const libro10= libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        idioma: libro.idioma,
+        editorial: libro.editorial,
+        precio: libro.precio,
+    };
+});
+// console.table(libro10);
+
+const libro11= libros.map((libro) =>{
+    return{
+        titulo:libro.titulo,
+        ubicacion: libro.ubicacion,
+        isbn: libro.isbn,
+    };
+});
+// console.table(libro11);
+
+const librosConDescuento = libros.map((libro) =>{
+    return{
+        ...libro,
+        descuento:20,
+    };
+});
+// console.table(librosConDescuento);
+
+const librosDescuento= librosConDescuento.map((libro) =>{
+        return{
+        titulo:libro.titulo,
+        autor: libro.autor,
+        editorial: libro.editorial,
+        precio: libro.precio,
+        descuento: libro.descuento,
+    };
+});
+// console.table(librosDescuento);
+
+const librosCaros = libros
+.filter((libro) =>{
+    return libro.precio > 50;
+})
+// console.table(librosCaros);
+
+const librosMayorPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
+.map((titulo) =>{                                                                                                                                                                                                                                                               
+    return{ 
+    titulo:titulo.titulo,
+    autor: titulo.autor,
+    editorial: titulo.editorial,
+    paginas: titulo.paginas,
+    };
+});
+// console.table(librosMayorPaginas);
+
+const librosOrdenados = librosMayorPaginas.sort((a,b) => b.paginas - a.paginas)
+    .map((titulo) =>{
+        return{
+        titulo:titulo.titulo,
+        paginas:titulo.paginas,
+    }
+});
+// console.table(librosOrdenados);
+
+const librosCarosTitulo = libros.sort((a,b) => b.precio - a.precio)
+.filter((libro) =>{
+    return libro.precio > 11})
+    .map ((titulo) =>{
+        return{
+            titulo:titulo.titulo,
+            autor:titulo.autor,
+            precio:titulo.precio,
+        }
+    })
+// console.table(librosCarosTitulo);
+
+const resumenPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
+.filter((libro) =>{
+    return libro.paginas < 100})
+.map((paginas) =>{                                                                                                                                                                                                                                                               
+    return{ 
+    titulo:paginas.titulo,
+    autor: paginas.autor,
+    editorial: paginas.editorial,
+    paginas: paginas.paginas,
+    };
+})
+// console.table(resumenPaginas);
+
+const librosMayores20 = libros.sort((a,b) => b.precio - a.precio)
+.filter((libro) =>{
+    return libro.precio > 20})
+    .map ((titulo) =>{
+        return{
+            titulo:titulo.titulo,
+            autor:titulo.autor,
+            precio:titulo.precio,
+        }
+    })
+// console.table(librosMayores20);
+
+const MayorPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
+.map((titulo) =>{                                                                                                                                                                                                                                                               
+    return{ 
+    titulo:titulo.titulo,
+    autor: titulo.autor,
+    editorial: titulo.editorial,
+    paginas: titulo.paginas,
+    };
+});
+// console.table(MayorPaginas);
+let libroTitulo = libros.find((libro) => {
+    return libro.titulo === "Eternamente Nosotros";
+  });
+//   console.table(libroTitulo);
+
+  let libroAutor= libros.find((autor) => {
+    return autor.autor === "Roos";
+  });
+//   console.table(libroAutor);
+
+  let libroFecha= libros.find((fecha_publicacion) => {
+    return fecha_publicacion.fecha_publicacion === "31 Diciembre 2022";
+  });
+//   console.table(libroFecha);
+
+  let libroGenero= libros.find((genero) => {
+    return genero.genero === "Literatura y Ficción";
+  });
+//   console.table(libroGenero);
+
+  let libroIdioma= libros.find((idioma) => {
+    return idioma.idioma === "Español";
+  });
+//   console.table(iteracion5);
+let iteracion1 = libros.find((editorial) => {
+    return editorial.editorial === "LuaBooks";
+  });
+//   console.table(iteracion1);
+
+  let iteracion2= libros.find((paginas) => {
+    return paginas.paginas === 200;
+  });
+//   console.table(iteracion2);
+
+  let iteracion3= libros.find((precio) => {
+    return precio.precio === 56;
+  });
+//   console.table(iteracion3);
+
+  let iteracion4= libros.find((titulo) => {
+    return titulo.genero === "Literatura y Ficción";
+  });
+//   console.table(iteracion4);
+
+  let iteracion5= libros.find((titulo) => {
+    return titulo.titulo === "Un diario para recordarte";
+  });
+//   console.table(iteracion5);
+
+let iteracion6= libros.find((isbn) => {
+    return isbn.isbn === "979-8870559582";
+  });
+//   console.table(iteracion6);
+
+  let iteracion7= libros.find((autor) => {
+    return autor.autor === "  Marianela Dos Santos";
+  });
+//   console.table(iteracion7);
+
+  let iteracion8= libros.find((fecha_publicacion) => {
+    return fecha_publicacion.fecha_publicacion === "27 Octubre 2023";
+  });
+//   console.table(iteracion8);
+
+  let iteracion9= libros.find((genero) => {
+    return genero.genero === "Salud Personal";
+  });
+//   console.table(iteracion9);
+
+  let iteracion10= libros.find((estado) => {
+    return estado.estado === "Nuevo";
+  });
+//   console.table(iteracion10);
 
 let mostrarMenu ="menu principal \n\n"
 mostrarMenu+="Seleccione una opción: \n";
@@ -371,7 +636,8 @@ mostrarMenu+="3. Quitar el último libro de la pila \n";
 mostrarMenu+="4. Mostrar la longitud de la pila \n";
 mostrarMenu+="5. listar libros \n";
 mostrarMenu+="6. resumen Libros \n";
-mostrarMenu+="7. Salir \n";
+mostrarMenu+="7. funcionalidades de este segmento\n";
+mostrarMenu+="8. Salir \n";
 
 
 function mostrarLibros(libros) {
@@ -380,25 +646,57 @@ console.log("Pila actual de libros:", libros);
 
 function añadirLibro(libros, libro) {
 libros.push(libro);
-console.log("Libro añadido: (libro.titulo)");
+console.log("Libro añadido:", libroEjemplo);
 }
 
 function quitarLibro(libros) {
 const libroQuitado = libros.pop();
 if (libroQuitado) {
-  console.log("Libro quitado: ${libroQuitado.titulo}");
+  console.log(`Libro quitado: ${libroQuitado.titulo}`);
 } else {
   console.log("No hay libros para quitar.");
 }
 }
 
-function listarLibros(libros){
-    libros.map(libro);
-    console.log("listar liros");
-}
+let menulistar="listar libros\n\n"
+    menulistar+="Seleccione una opción:\n";
+    menulistar+="1.listar por titulo,autor,precio,\n"
+    menulistar+="2.listar por titulo,isbn,genero,\n"
+    menulistar+="3.listar por titulo,estado,fecha_publicacion,\n"
+    menulistar+="4.listar por titulo,genero,idioma,\n"
+    menulistar+="5.listar por titulo,ubicacion,fecha_publicacion,\n"
+    menulistar+="6.listar por titulo,paginas,\n"
+    menulistar+="7.listar por titulo,formato,descripcion,\n"
+    menulistar+="8.listar por titulo,dimensiones,peso,\n"
+    menulistar+="9.listar por titulo,genero,estado,\n"
+    menulistar+="10.listar por titulo,idioma,editorial,precio,\n"
+    menulistar+="11.listar por titulo,ubicacion,isbn,\n" 
+    menulistar+="12.listar libros con descuento\n"
+    menulistar+="13.listar libros por titulo, Autor, Editorial, Precio y descuento\n"
+
+let menuresumenes="resumir libros\n\n"
+    menuresumenes+="Seleccione una opción:\n";
+    menuresumenes+="1.libros mayores a 50 dolares\n"
+    menuresumenes+="2.resumen de libros por titulo,autor,editorial,paginas mayor numero de paginas\n"
+    menuresumenes+="3.Ordenar los libros por numero de paginas de mayor a menor\n"
+    menuresumenes+="4.por titulo mayores de 11 dolares, resumirlos por titulo, autor, precio.\n"
+    menuresumenes+="5.menos de 100 paginas resumirlos por titulo, autor, editorial y paginas.\n"
+    menuresumenes+="6.mayores a 20 dolares de mayor a menor resumirlos por titulo, autor, precio.\n"
+    menuresumenes+="7. por numero mas alto de paginas resumirlos por titulo, autor, editorial, paginas ordenados de mayor a menor.\n"
+    
+let buscarLibro="mostar libro por:\n\n"
+    buscarLibro+="Seleccione una opción:\n";
+    buscarLibro+="1.por titulo\n"
+    buscarLibro+="2.por autor\n"
+    buscarLibro+="3.por fecha_publicacion\n"
+    buscarLibro+="4.por genero\n"
+    buscarLibro+="5.por idioma\n"
+    buscarLibro+="6.10 iteraciones\n"
 
 var continuar = "si";
-
+var opcionesListar
+var opcionesresumenes
+var buscarlibro
 do {
 
 var opcion = prompt(mostrarMenu);
@@ -417,9 +715,110 @@ switch (opcion) {
     mostrarLongitud(libros);
     break;
     case '5':
-        listarLibros(libros);
+        opcionesListar = prompt(menulistar);
+        switch (opcionesListar){
+            case '1':
+        console.table(libro1);
+     break;
+     case '2':
+
+     console.table(libro2);
+    break;
+  case '3':
+    console.table(libro3);
+    break;
+    case '4':
+        console.table(libro4);
         break;
+    case '5':
+    console.table(libro5);
+    break;
     case '6':
+    console.table(libro6);
+    break;
+    case '7':
+    console.table(libro7);
+    break;
+    case '8':
+    console.table(libro8);
+    break;
+    case '9':
+    console.table(libro9);
+    break;
+    case '10':
+    console.table(libro10);
+    break;
+    case '11':
+    console.table(libro11);
+    break;
+    case '12':
+    console.table(librosConDescuento);;
+    break;
+    case '13':
+    console.table(librosDescuento);
+    break;
+        }
+        break;
+        case '6':
+        opcionesresumenes = prompt(menuresumenes);
+        switch (opcionesresumenes){
+            case '1':
+        console.table(librosCaros);;
+     break;
+     case '2':
+     console.table(librosMayorPaginas);
+    break;
+  case '3':
+    console.table(librosOrdenados);
+    break;
+    case '4':
+     console.table(librosCarosTitulo);
+        break;
+    case '5':
+    console.table(resumenPaginas);
+    break;
+    case '6':
+        console.table(librosMayores20);
+    break;
+    case '7':
+    console.table(MayorPaginas);
+    break;
+        }
+        break;
+        case '7':
+            buscarlibro = prompt(buscarLibro);
+        switch (buscarlibro){
+            case '1':
+        console.table(libroTitulo);
+     break;
+     case '2':
+     console.table(libroAutor);
+    break;
+  case '3':
+    console.table(libroFecha);
+    break;
+    case '4':
+        console.table(libroGenero);
+        break;
+    case '5':
+        console.table(libroIdioma);
+    break;
+    case '6':
+        console.table(iteracion1);
+        console.table(iteracion2);
+        console.table(iteracion3);
+        console.table(iteracion4);
+        console.table(iteracion5);
+        console.table(iteracion6);
+        console.table(iteracion7);
+        console.table(iteracion8);
+        console.table(iteracion9);
+        console.table(iteracion10);
+    break;
+    
+        }
+        break;
+    case '8':
     continuar = "no";
     console.log("Saliendo del programa...");
     break;
@@ -431,192 +830,6 @@ if (continuar !== "no") {
   continuar = prompt("Desea continuar (si/no)").toLowerCase();
 }
 } while (continuar === "si");
-
-const libro1 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        autor: libro.autor,
-        precio: libro.precio,
-    };
-});
-console.table(libro1);
-
-const libro2 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        isbn: libro.isbn,
-        genero: libro.genero,
-    };
-});
-console.table(libro2);
-
-const libro3 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        estado: libro.estado,
-        fecha_publicacion: libro.fecha_publicacion,
-    };
-});
-console.table(libro3);
-
-const libro4 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        genero:libro.genero,
-        idioma:libro.idioma,
-        
-    };
-});
-console.table(libro4);
-
-const libro5 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        ubicacion: libro.ubicacion,
-        fecha_publicacion: libro.fecha_publicacion,
-    };
-});
-console.table(libro5);
-
-const libro6 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        paginas: libro.paginas,
-    };
-});
-console.table(libro6);
-
-const libro7 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        formato: libro.formato,
-        descripcion: libro.descripcion,
-    };
-});
-console.table(libro7);
-
-const libro8 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        dimensiones: libro.dimensiones,
-        peso: libro.peso,
-    };
-});
-console.table(libro8);
-
-const libro9 = libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        genero: libro.genero,
-        estado: libro.estado,
-    };
-});
-console.table(libro9);
-
-const libro10= libros.map((libro) =>{
-    return{
-        titulo:libro.titulo,
-        idioma: libro.idioma,
-        editorial: libro.editorial,
-        precio: libro.precio,
-    };
-});
-console.table(libro10);
-
-const librosConDescuento = libros.map((libro) =>{
-    return{
-        ...libro,
-        descuento:20,
-    };
-});
-console.table(librosConDescuento);
-
-const librosDescuento= librosConDescuento.map((libro) =>{
-        return{
-        titulo:libro.titulo,
-        autor: libro.autor,
-        editorial: libro.editorial,
-        precio: libro.precio,
-        descuento: libro.descuento,
-    };
-});
-console.table(librosDescuento);
-
-const librosCaros = libros
-.filter((libro) =>{
-    return libro.precio > 50;
-})
-console.table(librosCaros);
-
-const librosMayorPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
-.map((titulo) =>{                                                                                                                                                                                                                                                               
-    return{ 
-    titulo:titulo.titulo,
-    autor: titulo.autor,
-    editorial: titulo.editorial,
-    paginas: titulo.paginas,
-    };
-});
-console.table(librosMayorPaginas);
-
-const librosOrdenados = librosMayorPaginas.sort((a,b) => b.paginas - a.paginas)
-    .map((titulo) =>{
-        return{
-        titulo:titulo.titulo,
-        paginas:titulo.paginas,
-    }
-});
-console.table(librosOrdenados);
-
-const librosCarosTitulo = libros.sort((a,b) => b.precio - a.precio)
-.filter((libro) =>{
-    return libro.precio > 11})
-    .map ((titulo) =>{
-        return{
-            titulo:titulo.titulo,
-            autor:titulo.autor,
-            precio:titulo.precio,
-        }
-    })
-console.table(librosCarosTitulo);
-
-const resumenPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
-.filter((libro) =>{
-    return libro.paginas < 100})
-.map((paginas) =>{                                                                                                                                                                                                                                                               
-    return{ 
-    titulo:paginas.titulo,
-    autor: paginas.autor,
-    editorial: paginas.editorial,
-    paginas: paginas.paginas,
-    };
-})
-console.table(resumenPaginas);
-
-const librosMayores20 = libros.sort((a,b) => b.precio - a.precio)
-.filter((libro) =>{
-    return libro.precio > 20})
-    .map ((titulo) =>{
-        return{
-            titulo:titulo.titulo,
-            autor:titulo.autor,
-            precio:titulo.precio,
-        }
-    })
-console.table(librosMayores20);
-
-const MayorPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.paginas)
-.map((titulo) =>{                                                                                                                                                                                                                                                               
-    return{ 
-    titulo:titulo.titulo,
-    autor: titulo.autor,
-    editorial: titulo.editorial,
-    paginas: titulo.paginas,
-    };
-});
-console.table(MayorPaginas);
-
-
 
 
 

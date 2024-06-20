@@ -167,7 +167,7 @@ let libros = [
     ubicacion: "Amazon",
     fecha_publicacion: "17 Julio 2014",
     editorial: "Villegas Editores",
-    paginas: 184,
+    paginas: 84,
     dimensiones: "5.5 x 0.46 x 8.5 pulgadas",
     peso: "190 gramos" ,
 },
@@ -366,6 +366,7 @@ const libro1 = libros.map((libro) =>{
     return{
         titulo:libro.titulo,
         autor: libro.autor,
+        editorial:libro.editorial,
         precio: libro.precio,
     };
 });
@@ -554,31 +555,18 @@ const MayorPaginas = libros.sort((libroa,librob) => librob.paginas - libroa.pagi
     };
 });
 // console.table(MayorPaginas);
-let libroTitulo = libros.find((libro) => {
-    return libro.titulo === "Eternamente Nosotros";
-  });
-//   console.table(libroTitulo);
 
-  let libroAutor= libros.find((autor) => {
-    return autor.autor === "Roos";
-  });
-//   console.table(libroAutor);
+  let libroPorTitulo = libros.find(libro => libro.titulo === 'Eternamente Nosotros');
 
-  let libroFecha= libros.find((fecha_publicacion) => {
-    return fecha_publicacion.fecha_publicacion === "31 Diciembre 2022";
-  });
-//   console.table(libroFecha);
+  let librosPorAutor = libros.filter(libro => libro.autor === 'Roos');
 
-  let libroGenero= libros.find((genero) => {
-    return genero.genero === "Literatura y Ficción";
-  });
-//   console.table(libroGenero);
+  let libroPorFecha = libros.find(libro => libro.fecha === 1967); 
 
-  let libroIdioma= libros.find((idioma) => {
-    return idioma.idioma === "Español";
-  });
-//   console.table(iteracion5);
-let iteracion1 = libros.find((editorial) => {
+  let librosPorGenero = libros.filter(libro => libro.genero === 'Romance');
+
+  let librosPorIdioma = libros.find(libro => libro.idioma === 'Inglés');
+
+  let iteracion1 = libros.find((editorial) => {
     return editorial.editorial === "LuaBooks";
   });
 //   console.table(iteracion1);
@@ -626,7 +614,7 @@ let iteracion6= libros.find((isbn) => {
   let iteracion10= libros.find((estado) => {
     return estado.estado === "Nuevo";
   });
-//   console.table(iteracion10);
+
 
 let mostrarMenu ="menu principal \n\n"
 mostrarMenu+="Seleccione una opción: \n";
@@ -660,7 +648,7 @@ if (libroQuitado) {
 
 let menulistar="listar libros\n\n"
     menulistar+="Seleccione una opción:\n";
-    menulistar+="1.listar por titulo,autor,precio,\n"
+    menulistar+="1.listar por titulo,autor,editorial,precio,\n"
     menulistar+="2.listar por titulo,isbn,genero,\n"
     menulistar+="3.listar por titulo,estado,fecha_publicacion,\n"
     menulistar+="4.listar por titulo,genero,idioma,\n"
@@ -671,8 +659,9 @@ let menulistar="listar libros\n\n"
     menulistar+="9.listar por titulo,genero,estado,\n"
     menulistar+="10.listar por titulo,idioma,editorial,precio,\n"
     menulistar+="11.listar por titulo,ubicacion,isbn,\n" 
-    menulistar+="12.listar libros con descuento\n"
-    menulistar+="13.listar libros por titulo, Autor, Editorial, Precio y descuento\n"
+    menulistar+="12.10 iteraciones con titulo\n"
+    menulistar+="13.listar libros con descuento\n"
+    menulistar+="14.listar libros por titulo, Autor, Editorial, Precio y descuento\n"
 
 let menuresumenes="resumir libros\n\n"
     menuresumenes+="Seleccione una opción:\n";
@@ -752,9 +741,21 @@ switch (opcion) {
     console.table(libro11);
     break;
     case '12':
-    console.table(librosConDescuento);;
+      console.table(libro2);
+      console.table(libro3);
+      console.table(libro4);
+      console.table(libro5);
+      console.table(libro6);
+      console.table(libro7);
+      console.table(libro8);
+      console.table(libro9);
+      console.table(libro10);
+      console.table(libro11);
     break;
     case '13':
+    console.table(librosConDescuento);
+    break;
+    case '14':
     console.table(librosDescuento);
     break;
         }
@@ -789,19 +790,19 @@ switch (opcion) {
             buscarlibro = prompt(buscarLibro);
         switch (buscarlibro){
             case '1':
-        console.table(libroTitulo);
+        console.table(libroPorTitulo);
      break;
      case '2':
-     console.table(libroAutor);
+     console.table(librosPorAutor);
     break;
   case '3':
-    console.table(libroFecha);
+    console.table(libroPorFecha);
     break;
     case '4':
-        console.table(libroGenero);
+        console.table(librosPorGenero);
         break;
     case '5':
-        console.table(libroIdioma);
+        console.table(librosPorIdioma);
     break;
     case '6':
         console.table(iteracion1);
